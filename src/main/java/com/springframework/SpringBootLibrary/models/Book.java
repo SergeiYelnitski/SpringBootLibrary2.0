@@ -1,5 +1,10 @@
 package com.springframework.SpringBootLibrary.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -10,6 +15,11 @@ import java.util.Date;
 
 @Entity
 @Table(name = "Book")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Book {
 
     @Id
@@ -41,78 +51,4 @@ public class Book {
 
     @Transient
     private boolean expired;
-
-    public Book() {
-    }
-
-    public Book(String title, String author, int yearOfProduction) {
-        this.title = title;
-        this.author = author;
-        this.yearOfProduction = yearOfProduction;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public int getYearOfProduction() {
-        return yearOfProduction;
-    }
-
-    public void setYearOfProduction(int yearOfProduction) {
-        this.yearOfProduction = yearOfProduction;
-    }
-
-    public Person getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Person owner) {
-        this.owner = owner;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public boolean isExpired() {
-        return expired;
-    }
-
-    public void setExpired(boolean expired) {
-        this.expired = expired;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", yearOfProduction=" + yearOfProduction +
-                '}';
-    }
 }

@@ -1,5 +1,10 @@
 package com.springframework.SpringBootLibrary.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -10,6 +15,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "Person")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Person {
 
     @Id
@@ -27,54 +37,6 @@ public class Person {
     private int birthday;
 
     @OneToMany(mappedBy = "owner")
+    @ToString.Exclude
     private List<Book> books;
-
-    public Person() {
-
-    }
-
-    public Person(String name, int birthday) {
-        this.name = name;
-        this.birthday = birthday;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(int birthday) {
-        this.birthday = birthday;
-    }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", birthday=" + birthday +
-                '}';
-    }
 }
