@@ -29,10 +29,10 @@ public class Person {
 
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
-    @Column(name = "name")
+    @Column(name = "full_name")
     private String name;
 
-    @Column(name = "birthday")
+    @Column(name = "year_of_birth")
     @Min(value = 1890, message = "Birthday should be greater than 1890")
     private int birthday;
 
